@@ -1,4 +1,3 @@
-
 import greeter from '../src';
 
 describe('test add function', () => {
