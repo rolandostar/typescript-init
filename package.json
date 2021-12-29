@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "private": true,
+  "type": "module",
   "scripts": {
     "start": "node build",
-    "build": "tsc",
+    "build": "tsc -p tsconfig-build.json",
     "dev": "npm-run-all build --parallel dev:*",
     "dev:start": "npx cross-env NODE_ENV=development nodemon -e js --watch build build",
-    "dev:build": "tsc -w",
+    "dev:build": "tsc -w -p tsconfig-build.json",
     "lint": "eslint src",
     "test": "jest"
   },

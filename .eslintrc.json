@@ -1,9 +1,7 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser", // Specifies the ESLint parser
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "plugins": ["@typescript-eslint", "import"],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
@@ -18,14 +16,18 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking"
   ],
-  "ignorePatterns": [
-    "build",
-    "node_modules",
-    "coverage"
-  ],
+  "ignorePatterns": ["build", "node_modules", "coverage"],
   // Place to specify ESLint rules. Can be used to overwrite rules from the extended configs
   "rules": {
-    
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": false,
+        "optionalDependencies": false,
+        "peerDependencies": false,
+        "packageDir": "."
+      }
+    ]
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
   }
 }
